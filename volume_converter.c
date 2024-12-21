@@ -73,6 +73,11 @@ void converterVolume() {
 }
 
 int main() {
-    converterVolume();
+    char continuar;
+    do {
+        converterVolume();
+        printf("Deseja realizar outra conversão? (s/n): ");
+        scanf(" %c", &continuar);
+    } while (continuar == 's' || continuar == 'S');
     return 0;
 }
