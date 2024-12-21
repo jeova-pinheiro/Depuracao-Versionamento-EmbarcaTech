@@ -73,6 +73,11 @@ void converterMassa() {
 }
 
 int main() {
-    converterMassa();
+    char continuar;
+    do {
+        converterMassa();
+        printf("Deseja realizar outra conversão? (s/n): ");
+        scanf(" %c", &continuar);
+    } while (continuar == 's' || continuar == 'S');
     return 0;
 }
