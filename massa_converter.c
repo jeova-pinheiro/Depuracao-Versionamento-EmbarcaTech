@@ -1,51 +1,75 @@
 #include <stdio.h>
 
-// Função para conversão de massa
+// Função para conversão de massa entre diferentes unidades
 void converterMassa() {
-    int opcao;
+    int opcaoOrigem, opcaoDestino;
     double valor, convertido;
 
-    printf("Selecione a conversão de massa desejada:\n");
-    printf("1. Quilograma para Grama\n");
-    printf("2. Grama para Quilograma\n");
-    printf("3. Quilograma para Tonelada\n");
-    printf("4. Tonelada para Quilograma\n");
-    printf("5. Grama para Tonelada\n");
-    printf("6. Tonelada para Grama\n");
-    printf("Digite sua escolha (1-6): ");
-    scanf("%d", &opcao);
+    // Unidades disponíveis para conversão
+    printf("Unidades de Massa disponíveis:\n");
+    printf("1. Quilograma (kg)\n");
+    printf("2. Grama (g)\n");
+    printf("3. Tonelada (t)\n");
+    printf("4. Miligrama (mg)\n");
 
+    // Escolha da unidade de origem
+    printf("Escolha a unidade de origem (1-4): ");
+    scanf("%d", &opcaoOrigem);
+
+    // Escolha da unidade de destino
+    printf("Escolha a unidade de destino (1-4): ");
+    scanf("%d", &opcaoDestino);
+
+    // Entrada do valor a ser convertido
     printf("Digite o valor a ser convertido: ");
     scanf("%lf", &valor);
 
-    switch (opcao) {
-        case 1:
-            convertido = valor * 1000;
-            printf("%.2lf Quilogramas equivalem a %.2lf Gramas.\n", valor, convertido);
+    // Conversão de valores
+    if (opcaoOrigem == opcaoDestino) {
+        printf("As unidades são iguais. O valor permanece o mesmo: %.2lf\n", valor);
+        return;
+    }
+
+    // Converte o valor para a unidade base (quilograma)
+    switch (opcaoOrigem) {
+        case 1: // Quilograma
+            convertido = valor; // já está em quilogramas
             break;
-        case 2:
-            convertido = valor / 1000;
-            printf("%.2lf Gramas equivalem a %.2lf Quilogramas.\n", valor, convertido);
+        case 2: // Grama
+            convertido = valor / 1000; // 1 kg = 1000 g
             break;
-        case 3:
-            convertido = valor / 1000;
-            printf("%.2lf Quilogramas equivalem a %.2lf Toneladas.\n", valor, convertido);
+        case 3: // Tonelada
+            convertido = valor * 1000; // 1 t = 1000 kg
             break;
-        case 4:
-            convertido = valor * 1000;
-            printf("%.2lf Toneladas equivalem a %.2lf Quilogramas.\n", valor, convertido);
-            break;
-        case 5:
-            convertido = valor / 1e6;
-            printf("%.2lf Gramas equivalem a %.2lf Toneladas.\n", valor, convertido);
-            break;
-        case 6:
-            convertido = valor * 1e6;
-            printf("%.2lf Toneladas equivalem a %.2lf Gramas.\n", valor, convertido);
+        case 4: // Miligrama
+            convertido = valor / 1e6; // 1 kg = 1.000.000 mg
             break;
         default:
-            printf("Opção inválida!\n");
+            printf("Opção de origem inválida!\n");
+            return;
     }
+
+    // Converte da unidade base (quilograma) para a unidade de destino
+    switch (opcaoDestino) {
+        case 1: // Quilograma
+            // Já está convertido, mantém o valor
+            break;
+        case 2: // Grama
+            convertido *= 1000; // 1 kg = 1000 g
+            break;
+        case 3: // Tonelada
+            convertido /= 1000; // 1 t = 1000 kg
+            break;
+        case 4: // Miligrama
+            convertido *= 1e6; // 1 kg = 1.000.000 mg
+            break;
+        default:
+            printf("Opção de destino inválida!\n");
+            return;
+    }
+
+    // Exibe o resultado
+    printf("O valor convertido é: %.2lf\n", convertido);
 }
 
 int main() {
