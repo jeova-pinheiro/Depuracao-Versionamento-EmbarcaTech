@@ -21,6 +21,26 @@ double milimetros_para_centimetros(double milimetros) {
     return milimetros / 10.0;
 }
 
+// Funções de conversão de potência
+double watts_para_quilowatts(double watts) {
+    return watts / 1000.0;
+}
+double watts_para_cv(double watts) {
+    return watts / 735.5;
+}
+double quilowatts_para_watts(double quilowatts) {
+    return quilowatts * 1000.0;
+}
+double quilowatts_para_cv(double quilowatts) {
+    return quilowatts * 1.35962;
+}
+double cv_para_watts(double cv) {
+    return cv * 735.5;
+}
+double cv_para_quilowatts(double cv) {
+    return cv / 1.35962;
+}
+
 void comprimento() {
     int opcao;
     double valor, resultado;
@@ -76,7 +96,6 @@ void comprimento() {
     } while (opcao != 0);
 }
 
-
 void temperatura() {
     printf("=== Conversões de Temperatura ===\n");
     // Implementar as opções de conversão de temperatura aqui
@@ -107,6 +126,61 @@ void dados() {
     // Implementar as opções de conversão de dados aqui
 }
 
+void potencia() {
+    int opcao;
+    double valor, resultado;
+
+    do {
+        printf("\n=== Conversões de Potência ===\n");
+        printf("[1] Watts para Quilowatts\n");
+        printf("[2] Watts para Cavalos-vapor (cv)\n");
+        printf("[3] Quilowatts para Watts\n");
+        printf("[4] Quilowatts para Cavalos-vapor (cv)\n");
+        printf("[5] Cavalos-vapor (cv) para Watts\n");
+        printf("[6] Cavalos-vapor (cv) para Quilowatts\n");
+        printf("[0] Voltar ao menu principal\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao >= 1 && opcao <= 6) {
+            printf("Digite o valor: ");
+            scanf("%lf", &valor);
+        }
+
+        switch (opcao) {
+            case 1:
+                resultado = watts_para_quilowatts(valor);
+                printf("%.2f watts = %.2f quilowatts\n", valor, resultado);
+                break;
+            case 2:
+                resultado = watts_para_cv(valor);
+                printf("%.2f watts = %.2f cavalos-vapor (cv)\n", valor, resultado);
+                break;
+            case 3:
+                resultado = quilowatts_para_watts(valor);
+                printf("%.2f quilowatts = %.2f watts\n", valor, resultado);
+                break;
+            case 4:
+                resultado = quilowatts_para_cv(valor);
+                printf("%.2f quilowatts = %.2f cavalos-vapor (cv)\n", valor, resultado);
+                break;
+            case 5:
+                resultado = cv_para_watts(valor);
+                printf("%.2f cavalos-vapor (cv) = %.2f watts\n", valor, resultado);
+                break;
+            case 6:
+                resultado = cv_para_quilowatts(valor);
+                printf("%.2f cavalos-vapor (cv) = %.2f quilowatts\n", valor, resultado);
+                break;
+            case 0:
+                printf("Voltando ao menu principal...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 0);
+}
+
 int main() {
     int opcao;
 
@@ -119,6 +193,7 @@ int main() {
         printf("[5] Tempo\n");
         printf("[6] Velocidade\n");
         printf("[7] Dados (Bits, Bytes, KB, MB, GB, TB)\n");
+        printf("[8] Potência (Watts, Quilowatts, Cavalos-vapor)\n");
         printf("[0] Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
@@ -144,6 +219,9 @@ int main() {
                 break;
             case 7:
                 dados();
+                break;
+            case 8:
+                potencia();
                 break;
             case 0:
                 printf("Saindo do programa. Até mais!\n");
