@@ -139,7 +139,7 @@ void potencia() {
         printf("[5] Cavalos-vapor (cv) para Watts\n");
         printf("[6] Cavalos-vapor (cv) para Quilowatts\n");
         printf("[0] Voltar ao menu principal\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opção : ");
         scanf("%d", &opcao);
 
         if (opcao >= 1 && opcao <= 6) {
