@@ -52,32 +52,6 @@ double kelvin_para_fahrenheit(double kelvin) {
     return (kelvin - 273.15) * 9.0 / 5.0 + 32.0;
 }
 
-
-double celsius_para_fahrenheit(double celsius) {
-    return (celsius * 9.0 / 5.0) + 32.0;
-}
-
-double celsius_para_kelvin(double celsius) {
-    return celsius + 273.15;
-}
-
-double fahrenheit_para_celsius(double fahrenheit) {
-    return (fahrenheit - 32.0) * 5.0 / 9.0;
-}
-
-double fahrenheit_para_kelvin(double fahrenheit) {
-    return (fahrenheit - 32.0) * 5.0 / 9.0 + 273.15;
-}
-
-double kelvin_para_celsius(double kelvin) {
-    return kelvin - 273.15;
-}
-
-double kelvin_para_fahrenheit(double kelvin) {
-    return (kelvin - 273.15) * 9.0 / 5.0 + 32.0;
-}
-
-
 void comprimento()
 {
     int opcao;
