@@ -330,7 +330,7 @@ int main()
         printf("[6] Area\n");
         printf("[7] Tempo\n");
         printf("[8] Dados (Bits, Bytes, KB, MB, GB, TB)\n");
-        printf("[8] Potência (Watts, Quilowatts, Cavalos-vapor)\n");
+        printf("[9] Potência (Watts, Quilowatts, Cavalos-vapor)\n");
         printf("[0] Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
@@ -360,6 +360,9 @@ int main()
             break;
         case 8:
             dados();
+            break;
+        case 9:
+            potencia();
             break;
         case 0:
             printf("Saindo do programa. Até mais!\n");
