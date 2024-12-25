@@ -48,25 +48,6 @@ double cv_para_quilowatts(double cv) {
     return cv / 1.35962;
 }
 
-// Funções de conversão de potência
-double watts_para_quilowatts(double watts) {
-    return watts / 1000.0;
-}
-double watts_para_cv(double watts) {
-    return watts / 735.5;
-}
-double quilowatts_para_watts(double quilowatts) {
-    return quilowatts * 1000.0;
-}
-double quilowatts_para_cv(double quilowatts) {
-    return quilowatts * 1.35962;
-}
-double cv_para_watts(double cv) {
-    return cv * 735.5;
-}
-double cv_para_quilowatts(double cv) {
-    return cv / 1.35962;
-}
 
 void comprimento()
 {
