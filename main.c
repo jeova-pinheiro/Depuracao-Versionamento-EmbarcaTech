@@ -28,6 +28,56 @@ double milimetros_para_centimetros(double milimetros)
     return milimetros / 10.0;
 }
 
+double celsius_para_fahrenheit(double celsius) {
+    return (celsius * 9.0 / 5.0) + 32.0;
+}
+
+double celsius_para_kelvin(double celsius) {
+    return celsius + 273.15;
+}
+
+double fahrenheit_para_celsius(double fahrenheit) {
+    return (fahrenheit - 32.0) * 5.0 / 9.0;
+}
+
+double fahrenheit_para_kelvin(double fahrenheit) {
+    return (fahrenheit - 32.0) * 5.0 / 9.0 + 273.15;
+}
+
+double kelvin_para_celsius(double kelvin) {
+    return kelvin - 273.15;
+}
+
+double kelvin_para_fahrenheit(double kelvin) {
+    return (kelvin - 273.15) * 9.0 / 5.0 + 32.0;
+}
+
+
+double celsius_para_fahrenheit(double celsius) {
+    return (celsius * 9.0 / 5.0) + 32.0;
+}
+
+double celsius_para_kelvin(double celsius) {
+    return celsius + 273.15;
+}
+
+double fahrenheit_para_celsius(double fahrenheit) {
+    return (fahrenheit - 32.0) * 5.0 / 9.0;
+}
+
+double fahrenheit_para_kelvin(double fahrenheit) {
+    return (fahrenheit - 32.0) * 5.0 / 9.0 + 273.15;
+}
+
+double kelvin_para_celsius(double kelvin) {
+    return kelvin - 273.15;
+}
+
+double kelvin_para_fahrenheit(double kelvin) {
+    return (kelvin - 273.15) * 9.0 / 5.0 + 32.0;
+}
+
+
 void comprimento()
 {
     int opcao;
@@ -89,8 +139,58 @@ void comprimento()
 
 void temperatura()
 {
-    printf("=== Conversões de Temperatura ===\n");
-    // Implementar as opções de conversão de temperatura aqui
+    int opcao;
+    double valor, resultado;
+
+    do {
+        printf("\n=== Conversões de Temperatura ===\n");
+        printf("[1] Celsius para Fahrenheit\n");
+        printf("[2] Celsius para Kelvin\n");
+        printf("[3] Fahrenheit para Celsius\n");
+        printf("[4] Fahrenheit para Kelvin\n");
+        printf("[5] Kelvin para Celsius\n");
+        printf("[6] Kelvin para Fahrenheit\n");
+        printf("[0] Voltar ao menu principal\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao >= 1 && opcao <= 6) {
+            printf("Digite o valor: ");
+            scanf("%lf", &valor);
+        }
+
+        switch (opcao) {
+            case 1:
+                resultado = celsius_para_fahrenheit(valor);
+                printf("%.2f Celsius = %.2f Fahrenheit\n", valor, resultado);
+                break;
+            case 2:
+                resultado = celsius_para_kelvin(valor);
+                printf("%.2f Celsius = %.2f Kelvin\n", valor, resultado);
+                break;
+            case 3:
+                resultado = fahrenheit_para_celsius(valor);
+                printf("%.2f Fahrenheit = %.2f Celsius\n", valor, resultado);
+                break;
+            case 4:
+                resultado = fahrenheit_para_kelvin(valor);
+                printf("%.2f Fahrenheit = %.2f Kelvin\n", valor, resultado);
+                break;
+            case 5:
+                resultado = kelvin_para_celsius(valor);
+                printf("%.2f Kelvin = %.2f Celsius\n", valor, resultado);
+                break;
+            case 6:
+                resultado = kelvin_para_fahrenheit(valor);
+                printf("%.2f Kelvin = %.2f Fahrenheit\n", valor, resultado);
+                break;
+            case 0:
+                printf("Voltando ao menu principal...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 0);
 }
 
 void massa()
