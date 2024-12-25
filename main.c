@@ -366,14 +366,9 @@ void potencia() {
 }
 
 int main()
-{
-    setlocale(LC_ALL, "pt_BR.UTF-8"); // Configura para Português do Brasil com UTF-8
-
-    printf("Este é um texto com acentos: á, é, í, ó, ú, ç.\n");
-    printf("Exemplo com símbolo quadrado: m².\n");
-    
+{   
     int opcao;
-
+    
     do
     {
         printf("\n===== Menu de Conversões =====\n");
