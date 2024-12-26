@@ -148,6 +148,58 @@ double centimetro_cubico_para_metro_cubico(double centimetro_cubico) {
     return centimetro_cubico / 1e6;
 }
 
+// Funções de conversão de tempo
+double segundos_para_minutos(double segundos) {
+    return segundos / 60.0;
+}
+double segundos_para_horas(double segundos) {
+    return segundos / 3600.0;
+}
+double minutos_para_segundos(double minutos) {
+    return minutos * 60.0;
+}
+double minutos_para_horas(double minutos) {
+    return minutos / 60.0;
+}
+double horas_para_segundos(double horas) {
+    return horas * 3600.0;
+}
+double horas_para_minutos(double horas) {
+    return horas * 60.0;
+}
+
+// Funções de conversão de unidades de armazenamento
+double bits_para_bytes(double bits) {
+    return bits / 8.0;
+}
+double bytes_para_bits(double bytes) {
+    return bytes * 8.0;
+}
+double bytes_para_kilobytes(double bytes) {
+    return bytes / 1024.0;
+}
+double kilobytes_para_bytes(double kilobytes) {
+    return kilobytes * 1024.0;
+}
+double kilobytes_para_megabytes(double kilobytes) {
+    return kilobytes / 1024.0;
+}
+double megabytes_para_kilobytes(double megabytes) {
+    return megabytes * 1024.0;
+}
+double megabytes_para_gigabytes(double megabytes) {
+    return megabytes / 1024.0;
+}
+double gigabytes_para_megabytes(double gigabytes) {
+    return gigabytes * 1024.0;
+}
+double gigabytes_para_terabytes(double gigabytes) {
+    return gigabytes / 1024.0;
+}
+double terabytes_para_gigabytes(double terabytes) {
+    return terabytes * 1024.0;
+}
+
 void comprimento()
 {
     int opcao;
@@ -435,8 +487,60 @@ void volume() {
 
 void tempo()
 {
-    printf("=== Conversões de Tempo ===\n");
-    // Implementar as opções de conversão de tempo aqui
+    int opcao;
+    double valor, resultado;
+
+    do {
+        printf("=== Conversões de Tempo ===\n");
+        printf("[1] Segundos para Minutos\n");
+        printf("[2] Segundos para Horas\n");
+        printf("[3] Minutos para Segundos\n");
+        printf("[4] Minutos para Horas\n");
+        printf("[5] Horas para Segundos\n");
+        printf("[6] Horas para Minutos\n");
+        printf("[0] Voltar ao Menu Principal\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao >= 1 && opcao <= 6)
+        {
+            printf("Digite o valor: ");
+            scanf("%lf", &valor);
+        }
+
+        switch (opcao) {
+            case 1:
+                resultado = segundos_para_minutos(valor);
+                printf("%.2f segundos = %.2f minutos\n", valor, resultado);
+                break;
+            case 2:
+                resultado = segundos_para_horas(valor);
+                printf("%.2f segundos = %.2f horas\n", valor, resultado);
+                break;
+            case 3:
+                resultado = minutos_para_segundos(valor);
+                printf("%.2f minutos = %.2f segundos\n", valor, resultado);
+                break;
+            case 4:
+                resultado = minutos_para_horas(valor);
+                printf("%.2f minutos = %.2f horas\n", valor, resultado);
+                break;
+            case 5:
+                resultado = horas_para_segundos(valor);
+                printf("%.2f horas = %.2f segundos\n", valor, resultado);
+                break;
+            case 6:
+                resultado = horas_para_minutos(valor);
+                printf("%.2f horas = %.2f minutos\n", valor, resultado);
+                break;
+            case 0:
+                printf("Voltando ao menu principal...\n");
+                break;
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+        }
+    
+    } while (opcao != 0);
 }
 
 void velocidade()
@@ -537,10 +641,79 @@ void area()
     } while (opcao != 0);
 }
 
-void dados()
-{
-    printf("=== Conversões de Dados ===\n");
-    // Implementar as opções de conversão de dados aqui
+void dados() {
+    int opcao;
+    double valor, resultado;
+    
+    do {
+        printf("=== Conversões de Dados ===\n");
+        printf("[1] Bits para Bytes\n");
+        printf("[2] Bytes para Bits\n");
+        printf("[3] Bytes para Kilobytes\n");
+        printf("[4] Kilobytes para Bytes\n");
+        printf("[5] Kilobytes para Megabytes\n");
+        printf("[6] Megabytes para Kilobytes\n");
+        printf("[7] Megabytes para Gigabytes\n");
+        printf("[8] Gigabytes para Megabytes\n");
+        printf("[9] Gigabytes para Terabytes\n");
+        printf("[10] Terabytes para Gigabytes\n");
+        printf("[0] Voltar ao Menu Principal\n");
+        printf("[1] Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao >= 1 && opcao <= 10) {
+            printf("Digite o valor: ");
+            scanf("%lf", &valor);
+        }
+
+    switch (opcao) {
+        case 1:
+            resultado = bits_para_bytes(valor);
+            printf("%.2f bits = %.2f bytes\n", valor, resultado);
+            break;
+        case 2:
+            resultado = bytes_para_bits(valor);
+            printf("%.2f bytes = %.2f bits\n", valor, resultado);
+            break;
+        case 3:
+            resultado = bytes_para_kilobytes(valor);
+            printf("%.2f bytes = %.2f kilobytes\n", valor, resultado);
+            break;
+        case 4:
+            resultado = kilobytes_para_bytes(valor);
+            printf("%.2f kilobytes = %.2f bytes\n", valor, resultado);
+            break;
+        case 5:
+            resultado = kilobytes_para_megabytes(valor);
+            printf("%.2f kilobytes = %.2f megabytes\n", valor, resultado);
+            break;
+        case 6:
+            resultado = megabytes_para_kilobytes(valor);
+            printf("%.2f megabytes = %.2f kilobytes\n", valor, resultado);
+            break;
+        case 7:
+            resultado = megabytes_para_gigabytes(valor);
+            printf("%.2f megabytes = %.2f gigabytes\n", valor, resultado);
+            break;
+        case 8:
+            resultado = gigabytes_para_megabytes(valor);
+            printf("%.2f gigabytes = %.2f megabytes\n", valor, resultado);
+            break;
+        case 9:
+            resultado = gigabytes_para_terabytes(valor);
+            printf("%.2f gigabytes = %.2f terabytes\n", valor, resultado);
+            break;
+        case 10:
+            resultado = terabytes_para_gigabytes(valor);
+            printf("%.2f terabytes = %.2f gigabytes\n", valor, resultado);
+            break;
+        case 0:
+            printf("Voltando ao menu principal...\n");
+            break;
+        default:
+            printf("Opção inválida! Tente novamente.\n");
+        }
+    } while (opcao != 0);
 }
 
 void potencia() {
