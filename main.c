@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <locale.h>
 
 // Funções de conversão de comprimento
 double metros_para_centimetros(double metros)
